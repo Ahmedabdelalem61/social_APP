@@ -41,6 +41,8 @@ class SocialCubit extends Cubit<SocialStates> {
   int currentIndex = 0;
 
   void chaneNavButton(int index) {
+    if(index!=0)
+    getPosts();
     getUserData();
     if(index == 1)
       getUsers();
@@ -185,6 +187,11 @@ class SocialCubit extends Cubit<SocialStates> {
     @required String bio,
     @required String phone,
   }) {
+    UpdateUserData(
+      name: name,
+      phone: phone,
+      bio: bio
+    );
     uploadCoverImage(
       bio: bio,
       name: name,
@@ -268,6 +275,7 @@ class SocialCubit extends Cubit<SocialStates> {
   List<int> likes = [];
 
   void getPosts() {
+    posts = [];
     FirebaseFirestore.instance.collection('posts').get().then((value) {
       value.docs.forEach((element) {
         element.reference.collection('likes').get().then((value) {
@@ -297,7 +305,6 @@ class SocialCubit extends Cubit<SocialStates> {
   }
 
   List<SocilaUserModel> users = [];
-
   void getUsers() {
     if(users.length==0)
     FirebaseFirestore.instance

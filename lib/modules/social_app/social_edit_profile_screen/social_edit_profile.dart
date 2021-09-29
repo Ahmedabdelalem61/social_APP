@@ -21,13 +21,14 @@ class EditProfileScreen extends StatelessWidget {
         var model = SocialCubit.get(context).model;
         nameController.text = model.name;
         bioController.text = model.bio;
+        phoneController.text = model.phone;
         return Scaffold(
           appBar: defalutAppBar(
               context: context,
               text: 'Edit your Profile',
               actions: [
                 defaultTextButton(function: () {
-                  SocialCubit.get(context).update(name: nameController.text, bio: bioController.text, phone: phoneController.text);
+                  SocialCubit.get(context).update(name: nameController.text, bio: bioController.text, phone: phoneController.text.characters.toString());
                 }, text: 'UPDATE'),
                 SizedBox(
                   width: 10,

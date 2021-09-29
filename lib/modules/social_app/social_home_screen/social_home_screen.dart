@@ -77,7 +77,7 @@ class SocialHomeScreen extends StatelessWidget {
               children: [
                 CircleAvatar(
                   backgroundImage: NetworkImage(
-                      'https://image.freepik.com/free-photo/image-magnetic-handsome-helpless-young-man-shrugging-with-shoulders-looking-directly-raising-arms_176532-10250.jpg'
+                      modelpost.image
                   ),
                   radius: 25,
                 ),
@@ -90,7 +90,7 @@ class SocialHomeScreen extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          Text('Ahmed Abdelalem',style: TextStyle(
+                          Text(modelpost.name.characters.toUpperCase().toString(),style: TextStyle(
                             height: 1.4,
                           ),),
                           SizedBox(
@@ -237,7 +237,7 @@ class SocialHomeScreen extends StatelessWidget {
                     children: [
                       CircleAvatar(
                         backgroundImage: NetworkImage(
-                            '${modelpost.image}'
+                            '${SocialCubit.get(context).model.image}'
                         ),
                         radius: 15,
                       ),

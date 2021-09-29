@@ -30,7 +30,9 @@ ThemeData darkTheme = ThemeData(
           statusBarIconBrightness: Brightness.light,
         ),
         elevation: 0,
-        backgroundColor: HexColor('333739')));
+        backgroundColor: HexColor('333739')
+    )
+);
 ThemeData lightTheme = ThemeData(
     fontFamily: 'Jannah',
     textTheme: TextTheme(
